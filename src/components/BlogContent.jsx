@@ -8,6 +8,7 @@ const BlogContent = ({ blogData, setBlogData }) => {
       {blogData.length > 0 ? (
         blogData.map((post, index) => (
           <Box
+            key={index}
             index={index}
             title={post.title}
             author={post.author}
