@@ -1,0 +1,54 @@
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  width: 600px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a box shadow */
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+input[type="date"],
+input[type="text"] {
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 10px rgba(204, 188, 188, 0.2); /* Add a box shadow */
+}
+
+textarea {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 20px rgba(204, 188, 188, 0.2); /* Add a box shadow */
+}
+
+button {
+  width: 25%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #2252d6;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #444;
+}
