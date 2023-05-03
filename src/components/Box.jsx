@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import "./Box.css";
 
 const Box = ({
@@ -15,7 +15,7 @@ const Box = ({
   const [newAuthor, setNewAuthor] = useState(author);
   const [newContent, setNewContent] = useState(content);
 
-  const handleDelete = () => {
+  const handleDelete = useCallback(() => {
     const confirmed = window.confirm("Are you sure?");
     if (confirmed) {
       const updatedBlogData = [...blogData];
@@ -24,9 +24,9 @@ const Box = ({
     } else {
       return false;
     }
-  };
+  }, [index, blogData, setBlogData]);
 
-  const handleSave = () => {
+  const handleSave = useCallback(() => {
     const updatedBlogData = [...blogData];
     updatedBlogData[index] = {
       title: newTitle,
@@ -36,7 +36,7 @@ const Box = ({
     };
     setBlogData(updatedBlogData);
     setIsEditing(false);
-  };
+  }, [date, blogData, index, newAuthor, newContent, newTitle, setBlogData]);
 
   return (
     <div className="box">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import "./BlogForm.css";
 
 const BlogForm = ({ blogData, setBlogData }) => {
@@ -7,15 +7,18 @@ const BlogForm = ({ blogData, setBlogData }) => {
   const [date, setDate] = useState("");
   const [content, setContent] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission here
-    const newPost = {
+  const newPost = useMemo(() => {
+    return {
       title: title,
       author: author,
       date: date,
       content: content,
     };
+  }, [title, author, date, content]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Handle form submission here
     setBlogData([...blogData, newPost]);
     setTitle("");
     setAuthor("");

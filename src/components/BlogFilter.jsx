@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import "./BlogFilter.css";
 
 const BlogFilter = ({ blogData, setFilteredBlogData }) => {
@@ -13,16 +13,20 @@ const BlogFilter = ({ blogData, setFilteredBlogData }) => {
     }
   };
 
+  const filteredOptions = useMemo(() => {
+    return blogData.map((post, index) => (
+      <option value={post.date} key={index}>
+        {post.date}
+      </option>
+    ));
+  }, [blogData]);
+
   return (
     <div className="container">
       <label className="filter-by-date">Filter by Date:</label>
       <select className="filter-by-date" onChange={handleFilter}>
         <option value="All">All</option>
-        {blogData.map((post, index) => (
-          <option value={post.date} key={index}>
-            {post.date}
-          </option>
-        ))}
+        {filteredOptions}
       </select>
     </div>
   );
